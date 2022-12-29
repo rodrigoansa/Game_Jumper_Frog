@@ -21,6 +21,7 @@ pos_ped = -250
 pos_ped1 = -650
 pos_sap_x = 280
 pos_sap_y = 480
+sapo_rot = 0
 
 #Importando imagens
 pista = pygame.image.load('imagens/road.png')
@@ -35,9 +36,11 @@ tronco_2 = pygame.image.load('imagens/tronco_2.png')
 tronco_3 = pygame.image.load('imagens/tronco_3.png')
 pedra = pygame.image.load('imagens/pedra.png')
 sapo = pygame.image.load('imagens/sapo.png')
+# sapo_angulo = pygame.transform.rotate(sapo, sapo_rot)
 
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Jumper Frog')
+
 
 while True:
     for event in pygame.event.get():
@@ -46,7 +49,8 @@ while True:
             exit()
         if event.type == KEYDOWN:
             if event.key == K_LEFT:
-                pos_sap_x = pos_sap_x - 70
+                pos_sap_x = pos_sap_x - 70  
+                pygame.transform.rotate(sapo, -90)             
             if event.key == K_RIGHT:
                 pos_sap_x = pos_sap_x + 70
             if event.key == K_UP:
@@ -57,6 +61,7 @@ while True:
     tela.blit(pista, (0,260))
     tela.blit(pista, (0,475))
     tela.blit(rio, (0,40))
+    tela.blit(pista, (0,-180))
     
 
     tela.blit(tronco_1, (pos_tro_1, 45))
@@ -120,10 +125,11 @@ while True:
     pos_car_5 = pos_car_5 + 1
 
     sapo_pula = tela.blit(sapo, (pos_sap_x,pos_sap_y))
+
+    #Colisão
     
-    # if sapo_pula.colliderect(car_1):
-    #     pos_sap_x = 280
-    #     pos_sap_y = 480
+    # if sapo_pula.Rect.colliderect(car_1):
+    #     print('Errou')
 
     
     
