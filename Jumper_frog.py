@@ -68,9 +68,11 @@ while True:
 
     #Colisão
     
+    sapo_mask = pygame.mask.from_surface(sapo)
+    car_1_mask = pygame.mask.from_surface(car_1)
+
     # if sapo.colliderect(car_1):
     #      print('Errou')
-    
 
     tela.blit(tronco_1, (pos_tro_1, 45))
     if pos_tro_1 >= largura:
