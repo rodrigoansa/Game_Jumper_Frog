@@ -70,7 +70,7 @@ while True:
     tela.blit(rio, (0,40))
     tela.blit(pista, (0,-180))
 
-    if sapo_rect.colliderect(car_1_rect, False):
+    if sapo_rect.colliderect(car_1_rect):
         print('Errou')
     
 
