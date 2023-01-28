@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 from sys import exit
-import time
+
 
 pygame.init()
 
@@ -14,7 +14,7 @@ pos_lazer_y = 1
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Jumper Frog')
 
-lazer = pygame.draw.rect(tela, (255,0,0), (20, 10, 10, 10))
+# lazer = pygame.draw.rect(tela, (255,0,0), (20, 10, 10, 10))
 
 
 while True:
@@ -23,23 +23,11 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             exit()
-        
-    
-    
-    
-    
-    
-
-    pygame.draw.rect(tela, (255,255,0), (pos_lazer_x, pos_lazer_y, 3, 20))
+      
+    lazer = pygame.draw.rect(tela, (255,255,0), (pos_lazer_x, pos_lazer_y, 3, 20))
+    tela.blit(pygame.transform.rotate(lazer, 90), (200, 200))
     if pos_lazer_y >= altura:
        pos_lazer_y = 10
     pos_lazer_y = pos_lazer_y + 1
 
-    
-
-    
-
-    
-    
-    
     pygame.display.update()
